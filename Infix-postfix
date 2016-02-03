@@ -1,4 +1,4 @@
-// this is comment
+
 #include<stdio.h>
 #include<conio.h>
 char stk[10];
