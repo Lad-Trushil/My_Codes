@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<conio.h>
+char stk[10];
+int top=-1;
+void push(char ch)
+{
+    top++;
+    stk[top]=ch;
+}
+void pop()
+{
+    printf("%c",stk[top]);
+    stk[top]=NULL;
+    top--;
+}
+void main()
+{
+    char str[20];
+    int i;
+
+    printf("\nEnter the string:");
+    scanf("%s",&str);
+
+    for(i=0;str[i]!=NULL;i++)
+    {
+        if(str[i]=='+'||str[i]=='-')
+        {
+            printf("%c",stk[top]);
+            stk[top]=NULL;
+            top--;
+            push(str[i]);
+        }
+        else if(str[i]=='*'||str[i]=='/')
+        {
+            printf("%c",str[i]);
+            pop();
+        }
+        else
+        {
+            printf("%c",str[i]);
+        }
+    }
+    printf("\n %s ",stk);
+
+}
